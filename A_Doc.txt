@@ -1,0 +1,5 @@
+1) Installed & Created New Laravel Project EpicPortfolio
+2) Install Laravel Breeze
+3) Mastering Front-end template
+4) Install Filament
+5) 
