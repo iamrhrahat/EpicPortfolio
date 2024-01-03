@@ -17,7 +17,9 @@ class UserinfoResource extends Resource
 {
     protected static ?string $model = Userinfo::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-user-plus';
+    protected static ?string $navigationGroup = 'Portfolio Content';
+    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {
@@ -60,25 +62,25 @@ class UserinfoResource extends Resource
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('socialmedia_1_link')
-                    ->searchable(),
+                    ->hidden(),
                 Tables\Columns\TextColumn::make('socialmedia_1_icon')
-                    ->searchable(),
+                    ->hidden(),
                 Tables\Columns\TextColumn::make('socialmedia_2_link')
-                    ->searchable(),
+                    ->hidden(),
                 Tables\Columns\TextColumn::make('socialmedia_2_icon')
-                    ->searchable(),
+                    ->hidden(),
                 Tables\Columns\TextColumn::make('socialmedia_3_link')
-                    ->searchable(),
+                    ->hidden(),
                 Tables\Columns\TextColumn::make('socialmedia_3_icon')
-                    ->searchable(),
+                    ->hidden(),
                 Tables\Columns\TextColumn::make('socialmedia_4_link')
-                    ->searchable(),
+                    ->hidden(),
                 Tables\Columns\TextColumn::make('socialmedia_4_icon')
-                    ->searchable(),
+                    ->hidden(),
                 Tables\Columns\TextColumn::make('socialmedia_5_link')
-                    ->searchable(),
+                    ->hidden(),
                 Tables\Columns\TextColumn::make('socialmedia_5_icon')
-                    ->searchable(),
+                    ->hidden(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -86,7 +88,7 @@ class UserinfoResource extends Resource
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: false),
             ])
             ->filters([
                 //

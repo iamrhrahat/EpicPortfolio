@@ -2,4 +2,23 @@
 2) Install Laravel Breeze
 3) Mastering Front-end template
 4) Install Filament
-5) 
+5) create UserinfoController, Userinfo Model & Userinfo Migration & Rout for it
+6) migrate database
+7) add filament page resource by command
+8) Show the data & image in blade file using <?php ?> for introduce the variable
+9) create AboutController AboutModel with Migration
+10) migrate database
+11) add filamet page resource by command
+12) Show the data in welcome by introduce model variable
+13) edit app url in .env to show image
+14) create recent client model and migration
+15) implement on welcome blade
+16) create Service model and migration
+
+
+
+
+
+$table->id();
+            $table->string('email')->unique();
+            $table->timestamps();

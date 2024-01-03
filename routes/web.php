@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserinfoController;
 use Illuminate\Support\Facades\Route;
@@ -22,8 +24,11 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+    Route::post('/contact', [ContactController::class, 'myContact'])->name('contact.store');
 
-Route::get('/', [UserinfoController::class, 'index']);
+    Route::post('/',[ContactController::class, 'myNewsLetter'])->name('newsletter.store');
+// Route::get('/', [UserinfoController::class, 'index'])->name('welcome');
+// Route::get('/', [AboutController::class, 'about'])->name('welcome');
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
