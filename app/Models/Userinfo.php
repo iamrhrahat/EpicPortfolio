@@ -5,12 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Userinfo extends Model
+class UserInfo extends Model
 {
     use HasFactory;
     protected $fillable = [
         'name',
         'image',
+        'about_user',
         'socialmedia_1_link',
         'socialmedia_1_icon',
         'socialmedia_2_link',
@@ -24,5 +25,4 @@ class Userinfo extends Model
         'created_at',
         'updated_at'
     ];
-
 }

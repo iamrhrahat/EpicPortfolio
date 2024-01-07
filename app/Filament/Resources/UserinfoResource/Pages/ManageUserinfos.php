@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Filament\Resources\UserinfoResource\Pages;
+namespace App\Filament\Resources\UserInfoResource\Pages;
 
-use App\Filament\Resources\UserinfoResource;
+use App\Filament\Resources\UserInfoResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ManageRecords;
 
-class ManageUserinfos extends ManageRecords
+class ManageUserInfos extends ManageRecords
 {
-    protected static string $resource = UserinfoResource::class;
+    protected static string $resource = UserInfoResource::class;
 
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            //
         ];
     }
 }

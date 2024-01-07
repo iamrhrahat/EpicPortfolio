@@ -346,20 +346,21 @@
     <div class="flex flex-col items-center justify-center lg:flex-row">
         <?php
 // Fetch data using your Eloquent model
-$data = \App\Models\Userinfo::all();
+$data = \App\Models\UserInfo::all();
 $a_data = \App\Models\AboutModel::all();
 $image = \App\Models\Portfolio::all();
 $clients = \App\Models\Client::all();
 $experiences = \App\Models\Experience::all();
 $services = \App\Models\Service::all();
 $achivements = \App\Models\Achivement::all();
+$posts = \App\Models\Blog::all()->where('active', '=', true);
 ?>
  @foreach ($data as $item)
       <div class="rounded-full border-8 border-primary shadow-xl">
         <img
           src="{{asset ('storage/' . $item->image)}}"
-          class="h-48 rounded-full sm:h-56"
-          alt="{{$item->name}}"
+          class="h-48 rounded-full sm:h-56 object-scale-down"
+          alt="{{$item->name}}" style="width: 224px;"
         />
       </div>
 
@@ -688,11 +689,8 @@ $achivements = \App\Models\Achivement::all();
   </div>
 </div>
 
-<div
-  class="bg-cover bg-top bg-no-repeat pb-16 md:py-16 lg:py-24"
-  style="background-image: {{asset ('url(/assets/img/experience-figure.png)')}}"
-  id="statistics"
->
+<div class="bg-cover bg-top bg-no-repeat pb-16 md:py-16 lg:py-24" id="statistics"
+  style="background-image: {{asset ('url(/assets/img/experience-figure.png)')}}">
   <div class="container">
     <div
       class="mx-auto w-5/6 bg-white py-16 shadow md:w-11/12 lg:py-20 xl:py-24 2xl:w-full"
@@ -730,6 +728,7 @@ $achivements = \App\Models\Achivement::all();
 </div>
 
 <div class="bg-grey-50" id="blog">
+
   <div class="container py-16 md:py-20">
     <h2
       class="text-center font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl"
@@ -744,14 +743,15 @@ $achivements = \App\Models\Achivement::all();
     <div
       class="mx-auto grid w-full grid-cols-1 gap-6 pt-12 sm:w-3/4 lg:w-full lg:grid-cols-3 xl:gap-10"
     >
-      <a href="/post" class="shadow">
-        <div
-          style="background-image: {{asset (' url(/assets/img/post-01.png)')}}"
-          class="group relative h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72"
+    @forelse ($latestPosts as $post)
+      <a href="{{route('view', $post)}}" class="shadow">
+        <div class="group relative  "
         >
+        <img class="flex h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72" src="{{asset ('storage/' . $post->thumbnail)}}" />
           <span
             class="absolute inset-0 block bg-gradient-to-b from-blog-gradient-from to-blog-gradient-to bg-cover bg-center bg-no-repeat opacity-10 transition-opacity group-hover:opacity-50"
           ></span>
+
           <span
             class="absolute right-0 bottom-0 mr-4 mb-4 block rounded-full border-2 border-white px-6 py-2 text-center font-body text-sm font-bold uppercase text-white md:text-base"
             >Read More</span
@@ -759,60 +759,17 @@ $achivements = \App\Models\Achivement::all();
         </div>
         <div class="bg-white py-6 px-5 xl:py-8">
           <span class="block font-body text-lg font-semibold text-black"
-            >How to become a frontend developer</span
-          >
-          <span class="block pt-2 font-body text-grey-20"
-            >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.</span
+            >{{$post->title}}
+          <p class="block pt-2 font-body text-grey-20">
+            {{$post->shortBody(10)}}</p
           >
         </div>
       </a>
-      <a href="/post" class="shadow">
-        <div
-          style="background-image: {{asset ('url(/assets/img/post-02.png)')}}"
-          class="group relative h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72"
-        >
-          <span
-            class="absolute inset-0 block bg-gradient-to-b from-blog-gradient-from to-blog-gradient-to bg-cover bg-center bg-no-repeat opacity-10 transition-opacity group-hover:opacity-50"
-          ></span>
-          <span
-            class="absolute right-0 bottom-0 mr-4 mb-4 block rounded-full border-2 border-white px-6 py-2 text-center font-body text-sm font-bold uppercase text-white md:text-base"
-            >Read More</span
-          >
-        </div>
-        <div class="bg-white py-6 px-5 xl:py-8">
-          <span class="block font-body text-lg font-semibold text-black"
-            >My personal productivity system</span
-          >
-          <span class="block pt-2 font-body text-grey-20"
-            >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.</span
-          >
-        </div>
-      </a>
-      <a href="/post" class="shadow">
-        <div
-          style="background-image:{{asset (' url(/assets/img/post-03.png)')}}"
-          class="group relative h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72"
-        >
-          <span
-            class="absolute inset-0 block bg-gradient-to-b from-blog-gradient-from to-blog-gradient-to bg-cover bg-center bg-no-repeat opacity-10 transition-opacity group-hover:opacity-50"
-          ></span>
-          <span
-            class="absolute right-0 bottom-0 mr-4 mb-4 block rounded-full border-2 border-white px-6 py-2 text-center font-body text-sm font-bold uppercase text-white md:text-base"
-            >Read More</span
-          >
-        </div>
-        <div class="bg-white py-6 px-5 xl:py-8">
-          <span class="block font-body text-lg font-semibold text-black"
-            >My year in review 2020</span
-          >
-          <span class="block pt-2 font-body text-grey-20"
-            >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.</span
-          >
-        </div>
-      </a>
+      @empty
+      <p>No active and published blog posts available.</p>
+  @endforelse
+
+
     </div>
   </div>
 </div>
@@ -923,10 +880,8 @@ $achivements = \App\Models\Achivement::all();
   style="background-image: {{asset ('url(/assets/img/map.png)')}}"
 ></div>
 
-<div
-  class="relative bg-primary bg-cover bg-center bg-no-repeat py-16 bg-blend-multiply lg:py-24"
-  style="background-image: {{asset ('url(/assets/img/bg-cta.jpg)')}}"
->
+<div class="relative bg-primary bg-cover bg-center bg-no-repeat py-16 bg-blend-multiply lg:py-24"
+  style="background-image: {{asset ('url(/assets/img/bg-cta.jpg)')}}">
   <div class="container relative z-30">
     <h3
       class="text-center font-header text-3xl uppercase leading-tight tracking-wide text-white sm:text-4xl lg:text-5xl"
@@ -954,32 +909,7 @@ $achivements = \App\Models\Achivement::all();
 </div>
 </div>
 
-      <div class="bg-primary">
-  <div class="container flex flex-col justify-between py-6 sm:flex-row">
-    <p class="text-center font-body text-white md:text-left">
-        {{$setting->copyright_section}}, {{$setting->site_name}}.
-    </p>
-    <div class="flex items-center justify-center pt-5 sm:justify-start sm:pt-0">
-      <a href="{{$item->socialmedia_1_link}}">
-        <i
-          class="bx bxl-{{$item->socialmedia_1_icon}} text-2xl text-white hover:text-yellow"
-        ></i>
-      </a>
-      <a href="{{$item->socialmedia_2_link}}" class="pl-4">
-        <i class="bx bxl-{{$item->socialmedia_2_icon}} text-2xl text-white hover:text-yellow"></i>
-      </a>
-      <a href="{{$item->socialmedia_3_link}}" class="pl-4">
-        <i class="bx bxl-{{$item->socialmedia_3_icon}} text-2xl text-white hover:text-yellow"></i>
-      </a>
-      <a href="{{$item->socialmedia_4_link}}" class="pl-4">
-        <i class="bx bxl-{{$item->socialmedia_4_icon}} text-2xl text-white hover:text-yellow"></i>
-      </a>
-      <a href="{{$item->socialmedia_5_link}}" class="pl-4">
-        <i class="bx bxl-{{$item->socialmedia_5_icon}} text-2xl text-white hover:text-yellow"></i>
-      </a>
-    </div>
-  </div>
-</div>
+@extends('footer')
 
     </div>
     @endforeach
