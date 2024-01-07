@@ -14,9 +14,9 @@ class BlogController extends Controller
     {
         // Latest posts (plural)
         $latestPosts = Blog::where('active', '=', 1)
-            ->whereDate('published_at', '<', now())
+            ->whereDate('published_at', '<', Carbon::now())
             ->orderBy('published_at', 'desc')
-            ->limit(3)
+            ->limit(4)
             ->get();
 
         return view('welcome', compact('latestPosts'));
@@ -46,8 +46,5 @@ class BlogController extends Controller
         return view('blog.post', compact('post', 'prev', 'next'));
     }
 
-    public function view($slug)
-    {
 
-    }
 }

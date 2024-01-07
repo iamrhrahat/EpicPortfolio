@@ -45,8 +45,7 @@ class BlogResource extends Resource
                     ->columnSpanFull(),
                 Forms\Components\DateTimePicker::make('published_at')
                 ->columnSpanFull()
-                ->native(false)
-                ->firstDayOfWeek(7),
+                ->Date(),
                 Forms\Components\TextInput::make('meta_title')
                     ->maxLength(255)
                     ->columnSpanFull(),

@@ -14,9 +14,9 @@
     name="viewport"
   />
 
-  <title>How to become a frontend developer | {{$setting->site_name}}</title>
+  <title>{{$post->title}} | {{$setting->site_name}}</title>
 
-  <meta property="og:title" content="How to become a frontend developer | Atom Template" />
+  <meta property="og:title" content="{{$post->title}} | {{$setting->site_name}}" />
 
   <meta property="og:locale" content="en_US" />
 
@@ -389,20 +389,28 @@
   </div>
 
     <div class="mt-10 flex justify-between border-t border-lila py-12">
-      <a href="/" class="flex items-center">
+        @if ($prev)
+
+      <a href="{{route('view', $prev)}}" class="flex items-center text-left">
         <i class="bx bx-left-arrow-alt text-2xl text-primary"></i>
         <span
           class="block pl-2 font-body text-lg font-bold uppercase text-primary md:pl-5"
           >Previous Post</span
         >
       </a>
-      <a href="/" class="flex items-center">
+
+      @endif
+      @if ($next)
+
+      <a href="{{route('view', $next)}}" class="flex items-center text-right">
         <span
           class="block pr-2 font-body text-lg font-bold uppercase text-primary md:pr-5"
           >Next Post</span
         >
         <i class="bx bx-right-arrow-alt text-2xl text-primary"></i>
       </a>
+
+      @endif
     </div>
     <div
       class="flex flex-col items-center border-t border-lila py-12 pt-12 md:flex-row md:items-start xl:pb-20"

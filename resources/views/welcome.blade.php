@@ -787,10 +787,7 @@ $posts = \App\Models\Blog::all()->where('active', '=', true);
   </h4>
   <div class="mx-auto w-full pt-5 text-center sm:w-2/3 lg:pt-6">
     <p class="font-body text-grey-10">
-      Lorem ipsum dolor sit amet consectetur adipiscing elit hendrerit
-      condimentum turpis nisl sem, viverra habitasse urna ante lobortis
-      fermentum accumsan. Viverra habitasse urna ante lobortis fermentum
-      accumsan.
+        Get in touch with us! Fill out the form below to send a message. We'll respond promptly to your inquiries.
     </p>
   </div>
 
