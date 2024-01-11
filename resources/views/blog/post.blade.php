@@ -15,8 +15,15 @@
   />
 
   <title>{{$post->title}} | {{$setting->site_name}}</title>
+  <meta name="description" content="{{$post->meta_description ?: $post->shortBody(250)}}" />
+  <meta name="keywords" content="{{$post->meta_keyword}}" />
 
-  <meta property="og:title" content="{{$post->title}} | {{$setting->site_name}}" />
+
+
+  <meta property="og:title" content="{{$post->meta_title ?: $post->title}} | {{$setting->site_name}}" />
+  <meta property="og:description" content="{{$post->shortBody(150)}}" />
+<meta property="og:image" content="{{asset ('storage/' . $post->thumbnail)}}" />
+
 
   <meta property="og:locale" content="en_US" />
 

@@ -18,6 +18,9 @@ class UserInfoResource extends Resource
     protected static ?string $model = UserInfo::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-user-plus';
+
+    protected static ?string $navigationLabel = 'My Details';
+
     protected static ?string $navigationGroup = 'Portfolio Content';
 
     public static function form(Form $form): Form
@@ -30,7 +33,7 @@ class UserInfoResource extends Resource
                 Forms\Components\FileUpload::make('image')
                     ->image()
                     ->required(),
-                Forms\Components\Textarea::make('about-user')
+                Forms\Components\Textarea::make('about_user')
                     ->required()
                     ->maxLength(65535)
                     ->columnSpanFull(),

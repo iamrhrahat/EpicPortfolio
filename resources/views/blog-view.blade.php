@@ -117,7 +117,7 @@
     }
 }"
 >
-  <div class="w-full z-50 top-0 py-3 sm:py-5  bg-primary ">
+  <div class="w-full z-50 top-0 py-3 sm:py-5 bg-gradient-to-r from-hero-gradient-from to-hero-gradient-to bg-cover bg-center bg-no-repeat ">
   <div class="container flex items-center justify-between">
     <div>
       <a href="/">
@@ -132,7 +132,7 @@
 
           <a
             href="/#about"
-            class="cursor-pointe pt-0.5 font-header font-semibold uppercase text-white"
+            class="cursor-pointe pt-0.5 font-header font-semibold uppercase text-black"
             >About</a
           >
 
@@ -145,7 +145,7 @@
 
           <a
             href="/#services"
-            class="cursor-pointe pt-0.5 font-header font-semibold uppercase text-white"
+            class="cursor-pointe pt-0.5 font-header font-semibold uppercase text-black"
             >Services</a
           >
 
@@ -158,7 +158,7 @@
 
           <a
             href="/#portfolio"
-            class="cursor-pointe pt-0.5 font-header font-semibold uppercase text-white"
+            class="cursor-pointe pt-0.5 font-header font-semibold uppercase text-black"
             >Portfolio</a
           >
 
@@ -171,7 +171,7 @@
 
           <a
             href="/#clients"
-            class="cursor-pointe pt-0.5 font-header font-semibold uppercase text-white"
+            class="cursor-pointe pt-0.5 font-header font-semibold uppercase text-black"
             >Clients</a
           >
 
@@ -184,7 +184,7 @@
 
           <a
             href="/#work"
-            class="cursor-pointe pt-0.5 font-header font-semibold uppercase text-white"
+            class="cursor-pointe pt-0.5 font-header font-semibold uppercase text-black"
             >Work</a
           >
 
@@ -197,7 +197,7 @@
 
           <a
             href="/#statistics"
-            class="cursor-pointe pt-0.5 font-header font-semibold uppercase text-white"
+            class="cursor-pointe pt-0.5 font-header font-semibold uppercase text-black"
             >Statistics</a
           >
 
@@ -210,7 +210,7 @@
 
           <a
             href="/#blog"
-            class="cursor-pointe pt-0.5 font-header font-semibold uppercase text-white"
+            class="cursor-pointe pt-0.5 font-header font-semibold uppercase text-black"
             >Blog</a
           >
 
@@ -223,7 +223,7 @@
 
           <a
             href="/#contact"
-            class="cursor-pointe pt-0.5 font-header font-semibold uppercase text-white"
+            class="cursor-pointe pt-0.5 font-header font-semibold uppercase text-black"
             >Contact</a
           >
 
@@ -262,7 +262,7 @@
 
         <a
           href="/#about"
-          class="pt-0.5 font-header font-semibold uppercase text-white"
+          class="pt-0.5 font-header font-semibold uppercase text-black"
           >About</a
         >
 
@@ -272,7 +272,7 @@
 
         <a
           href="/#services"
-          class="pt-0.5 font-header font-semibold uppercase text-white"
+          class="pt-0.5 font-header font-semibold uppercase text-black"
           >Services</a
         >
 
@@ -282,7 +282,7 @@
 
         <a
           href="/#portfolio"
-          class="pt-0.5 font-header font-semibold uppercase text-white"
+          class="pt-0.5 font-header font-semibold uppercase text-black"
           >Portfolio</a
         >
 
@@ -292,7 +292,7 @@
 
         <a
           href="/#clients"
-          class="pt-0.5 font-header font-semibold uppercase text-white"
+          class="pt-0.5 font-header font-semibold uppercase text-black"
           >Clients</a
         >
 
@@ -302,7 +302,7 @@
 
         <a
           href="/#work"
-          class="pt-0.5 font-header font-semibold uppercase text-white"
+          class="pt-0.5 font-header font-semibold uppercase text-black"
           >Work</a
         >
 
@@ -312,7 +312,7 @@
 
         <a
           href="/#statistics"
-          class="pt-0.5 font-header font-semibold uppercase text-white"
+          class="pt-0.5 font-header font-semibold uppercase text-black"
           >Statistics</a
         >
 
@@ -322,7 +322,7 @@
 
         <a
           href="/#blog"
-          class="pt-0.5 font-header font-semibold uppercase text-white"
+          class="pt-0.5 font-header font-semibold uppercase text-black"
           >Blog</a
         >
 
@@ -332,7 +332,7 @@
 
         <a
           href="/#contact"
-          class="pt-0.5 font-header font-semibold uppercase text-white"
+          class="pt-0.5 font-header font-semibold uppercase text-black"
           >Contact</a
         >
 

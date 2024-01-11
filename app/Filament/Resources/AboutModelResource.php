@@ -17,6 +17,7 @@ class AboutModelResource extends Resource
 {
     protected static ?string $model = AboutModel::class;
 
+    protected static ?string $navigationLabel = 'About Section';
     protected static ?string $navigationIcon = 'heroicon-o-information-circle';
     protected static ?string $navigationGroup = 'Portfolio Content';
     protected static ?int $navigationSort = 5;

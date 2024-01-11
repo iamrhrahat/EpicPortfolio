@@ -16,7 +16,7 @@ class BlogController extends Controller
         $latestPosts = Blog::where('active', '=', 1)
             ->whereDate('published_at', '<', Carbon::now())
             ->orderBy('published_at', 'desc')
-            ->limit(4)
+            ->limit(6)
             ->get();
 
         return view('welcome', compact('latestPosts'));

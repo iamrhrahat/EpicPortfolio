@@ -84,6 +84,24 @@
 
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+  <style>
+    .notification-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+    }
+
+    .notification {
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: opacity 0.5s ease-in-out;
+    }
+</style>
 
 </head>
 
@@ -121,7 +139,7 @@
 
           <span
             @click="triggerNavItem('#about')"
-            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-black"
             >About</span
           >
 
@@ -134,7 +152,7 @@
 
           <span
             @click="triggerNavItem('#services')"
-            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-black"
             >Services</span
           >
 
@@ -147,7 +165,7 @@
 
           <span
             @click="triggerNavItem('#portfolio')"
-            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-black"
             >Portfolio</span
           >
 
@@ -160,7 +178,7 @@
 
           <span
             @click="triggerNavItem('#clients')"
-            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-black"
             >Clients</span
           >
 
@@ -173,7 +191,7 @@
 
           <span
             @click="triggerNavItem('#work')"
-            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-black"
             >Work</span
           >
 
@@ -186,7 +204,7 @@
 
           <span
             @click="triggerNavItem('#statistics')"
-            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-black"
             >Statistics</span
           >
 
@@ -199,7 +217,7 @@
 
           <span
             @click="triggerNavItem('#blog')"
-            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-black"
             >Blog</span
           >
 
@@ -212,7 +230,7 @@
 
           <span
             @click="triggerNavItem('#contact')"
-            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-black"
             >Contact</span
           >
 
@@ -225,7 +243,7 @@
     </div>
     <div class="block lg:hidden">
       <button @click="mobileMenu = true">
-        <i class="bx bx-menu text-4xl text-white"></i>
+        <i class="bx bx-menu text-4xl text-black"></i>
       </button>
     </div>
   </div>
@@ -251,7 +269,7 @@
 
         <span
           @click="triggerMobileNavItem('#about')"
-          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-black"
           >About</span
         >
 
@@ -261,7 +279,7 @@
 
         <span
           @click="triggerMobileNavItem('#services')"
-          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-black"
           >Services</span
         >
 
@@ -271,7 +289,7 @@
 
         <span
           @click="triggerMobileNavItem('#portfolio')"
-          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-black"
           >Portfolio</span
         >
 
@@ -281,7 +299,7 @@
 
         <span
           @click="triggerMobileNavItem('#clients')"
-          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-black"
           >Clients</span
         >
 
@@ -291,7 +309,7 @@
 
         <span
           @click="triggerMobileNavItem('#work')"
-          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-black"
           >Work</span
         >
 
@@ -301,7 +319,7 @@
 
         <span
           @click="triggerMobileNavItem('#statistics')"
-          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-black"
           >Statistics</span
         >
 
@@ -311,7 +329,7 @@
 
         <span
           @click="triggerMobileNavItem('#blog')"
-          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-black"
           >Blog</span
         >
 
@@ -321,7 +339,7 @@
 
         <span
           @click="triggerMobileNavItem('#contact')"
-          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-black"
           >Contact</span
         >
 
@@ -365,11 +383,18 @@ $posts = \App\Models\Blog::all()->where('active', '=', true);
       </div>
 
 
-
+      <div id="notification-container" class="notification-container">
+        @if (session('notification'))
+            <div class="notification">{{ session('notification') }}</div>
+        @endif
+        @error('email')
+    <div class="notification error">{{ $message }}</div>
+@enderror
+    </div>
 
       <div class="pt-8 sm:pt-10 lg:pl-8 lg:pt-0">
         <h1
-          class="text-center font-header text-4xl text-white sm:text-left sm:text-5xl md:text-6xl"
+          class="text-center font-header text-4xl text-black sm:text-left sm:text-5xl md:text-6xl"
         >
           Hello I'm {{$item->name}}!
         </h1>
@@ -379,7 +404,7 @@ $posts = \App\Models\Blog::all()->where('active', '=', true);
           <div
             class="flex items-center justify-center pl-0 sm:justify-start md:pl-1"
           >
-            <p class="font-body text-lg uppercase text-white">Let's connect</p>
+            <p class="font-body text-lg uppercase text-black">Let's connect</p>
             <div class="hidden sm:block">
               <i class="bx bx-chevron-right text-3xl text-yellow"></i>
             </div>
@@ -791,7 +816,7 @@ $posts = \App\Models\Blog::all()->where('active', '=', true);
     </p>
   </div>
 
-  <form class="mx-auto w-full pt-10 sm:w-3/4" method="POST" action="{{route ('contact.store')}}">
+  <form id="contact-form" class="mx-auto w-full pt-10 sm:w-3/4" method="POST" action="{{route ('contact.store')}}">
     @csrf
     <div class="flex flex-col md:flex-row">
       <input
@@ -886,11 +911,12 @@ $posts = \App\Models\Blog::all()->where('active', '=', true);
       Keep <span class="font-bold">up-to-date</span> <br />
       with what I'm up to
     </h3>
+
     <form class="mt-6 flex flex-col justify-center sm:flex-row" method="POST" action="{{route ('newsletter.store')}}">
         @csrf
       <input
         class="w-full rounded px-4 py-3 font-body text-black sm:w-2/5 sm:py-4 lg:w-1/3"
-        type="text"
+        type="email"
         id="email"
         name="email"
         placeholder="Give me your Email"
@@ -905,6 +931,17 @@ $posts = \App\Models\Blog::all()->where('active', '=', true);
   </div>
 </div>
 </div>
+<script>
+    // Remove the notification after a few seconds
+    setTimeout(() => {
+        const container = document.getElementById('notification-container');
+        const notification = container.querySelector('.notification');
+        if (notification) {
+            container.removeChild(notification);
+        }
+    }, 5000); // 5000 milliseconds (5 seconds)
+</script>
+
 
 @extends('footer')
 

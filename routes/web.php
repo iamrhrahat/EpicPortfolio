@@ -25,18 +25,12 @@ Route::get('/', [BlogController::class, 'showLatestPosts'])->name('welcome');
 Route::get('/blogs/{post:slug}', [BlogController::class, 'show'])->name('view');
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
     Route::post('/contact', [ContactController::class, 'myContact'])->name('contact.store');
 
     Route::post('/',[ContactController::class, 'myNewsLetter'])->name('newsletter.store');
 // Route::get('/', [UserinfoController::class, 'index'])->name('welcome');
 // Route::get('/', [AboutController::class, 'about'])->name('welcome');
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+
 
 require __DIR__.'/auth.php';
