@@ -412,27 +412,27 @@ $posts = \App\Models\Blog::all()->where('active', '=', true);
           <div
             class="flex items-center justify-center pt-5 pl-2 sm:justify-start sm:pt-0"
           >
-            <a href="{{$item->socialmedia_1_link}}">
+            <a href="{{$item->socialmedia_1_link}}" target="_blank">
               <i
                 class="bx bxl-{{$item->socialmedia_1_icon}} text-2xl text-white hover:text-yellow"
               ></i>
             </a>
-            <a href="{{$item->socialmedia_2_link}}" class="pl-4">
+            <a href="{{$item->socialmedia_2_link}}" class="pl-4" target="_blank">
               <i
                 class="bx bxl-{{$item->socialmedia_2_icon}} text-2xl text-white hover:text-yellow"
               ></i>
             </a>
-            <a href="{{$item->socialmedia_3_link}}" class="pl-4">
+            <a href="{{$item->socialmedia_3_link}}" class="pl-4" target="_blank">
               <i
                 class="bx bxl-{{$item->socialmedia_3_icon}} text-2xl text-white hover:text-yellow"
               ></i>
             </a>
-            <a href="{{$item->socialmedia_4_link}}" class="pl-4">
+            <a href="{{$item->socialmedia_4_link}}" class="pl-4" target="_blank">
               <i
                 class="bx bxl-{{$item->socialmedia_4_icon}} text-2xl text-white hover:text-yellow"
               ></i>
             </a>
-            <a href="{{$item->socialmedia_5_link}}" class="pl-4">
+            <a href="{{$item->socialmedia_5_link}}" class="pl-4"target="_blank">
               <i
                 class="bx bxl-{{$item->socialmedia_5_icon}} text-2xl text-white hover:text-yellow"
               ></i>
@@ -477,27 +477,27 @@ $posts = \App\Models\Blog::all()->where('active', '=', true);
         <div
             class="flex items-center justify-center pt-5 pl-2 sm:justify-start sm:pt-0"
           >
-            <a href="{{$item->socialmedia_1_link}}">
+            <a href="{{$item->socialmedia_1_link}}" target="_blank">
               <i
                 class="bx bxl-{{$item->socialmedia_1_icon}} text-2xl text-primary hover:text-yellow"
               ></i>
             </a>
-            <a href="{{$item->socialmedia_2_link}}" class="pl-4">
+            <a href="{{$item->socialmedia_2_link}}" class="pl-4" target="_blank">
               <i
                 class="bx bxl-{{$item->socialmedia_2_icon}} text-2xl text-primary hover:text-yellow"
               ></i>
             </a>
-            <a href="{{$item->socialmedia_3_link}}" class="pl-4">
+            <a href="{{$item->socialmedia_3_link}}" class="pl-4" target="_blank">
               <i
                 class="bx bxl-{{$item->socialmedia_3_icon}} text-2xl text-primary hover:text-yellow"
               ></i>
             </a>
-            <a href="{{$item->socialmedia_4_link}}" class="pl-4">
+            <a href="{{$item->socialmedia_4_link}}" class="pl-4" target="_blank">
               <i
                 class="bx bxl-{{$item->socialmedia_4_icon}} text-2xl text-primary hover:text-yellow"
               ></i>
             </a>
-            <a href="{{$item->socialmedia_5_link}}" class="pl-4">
+            <a href="{{$item->socialmedia_5_link}}" class="pl-4" target="_blank">
               <i
                 class="bx bxl-{{$item->socialmedia_5_icon}} text-2xl text-primary hover:text-yellow"
               ></i>
@@ -791,11 +791,12 @@ $posts = \App\Models\Blog::all()->where('active', '=', true);
         </div>
       </a>
       @empty
-      <p>No active and published blog posts available.</p>
-  @endforelse
+
 
 
     </div>
+    <p class="pt-6 text-center  text-black">"No active and published blog posts available."</p>
+  @endforelse
   </div>
 </div>
 

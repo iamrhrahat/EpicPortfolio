@@ -440,27 +440,27 @@
 
         </p>
         <div class="flex items-center justify-center pt-5 md:justify-start">
-          <a href="{{$data->first()->socialmedia_1_link}}">
+          <a href="{{$data->first()->socialmedia_1_link}}" target="_blank">
             <i
               class="bx bxl-{{$data->first()->socialmedia_1_icon}} text-2xl text-primary hover:text-yellow"
             ></i>
           </a>
-          <a href="{{$data->first()->socialmedia_2_link}}" class="pl-4">
+          <a href="{{$data->first()->socialmedia_2_link}}" class="pl-4" target="_blank">
             <i
               class="bx bxl-{{$data->first()->socialmedia_2_icon}} text-2xl text-primary hover:text-yellow"
             ></i>
           </a>
-          <a href="{{$data->first()->socialmedia_3_link}}" class="pl-4">
+          <a href="{{$data->first()->socialmedia_3_link}}" class="pl-4" target="_blank">
             <i
               class="bx bxl-{{$data->first()->socialmedia_3_icon}} text-2xl text-primary hover:text-yellow"
             ></i>
           </a>
-          <a href="{{$data->first()->socialmedia_4_link}}" class="pl-4">
+          <a href="{{$data->first()->socialmedia_4_link}}" class="pl-4" target="_blank">
             <i
               class="bx bxl-{{$data->first()->socialmedia_4_icon}} text-2xl text-primary hover:text-yellow"
             ></i>
           </a>
-          <a href="{{$data->first()->socialmedia_5_link}}" class="pl-4">
+          <a href="{{$data->first()->socialmedia_5_link}}" class="pl-4" target="_blank">
             <i
               class="bx bxl-{{$data->first()->socialmedia_5_icon}} text-2xl text-primary hover:text-yellow"
             ></i>

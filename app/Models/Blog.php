@@ -28,10 +28,15 @@ class Blog extends Model
     ];
     public function shortBody($words = 30): string
     {
-        return Str::words(strip_tags($this->body),30);
+        $bodyWithoutTags = strip_tags($this->body);
+
+        return Str::words($bodyWithoutTags, $words);
 
     }
-
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
     public function getFormattedDate()
     {
         return $this->published_at->format('F jS');

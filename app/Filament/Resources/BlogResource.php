@@ -21,6 +21,10 @@ class BlogResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    public static function getNavigationBadge(): ?string
+    {
+        return static :: getModel()::where('active', '=', 1)->count();
+    }
     public static function form(Form $form): Form
     {
         return $form

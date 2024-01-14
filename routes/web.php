@@ -22,7 +22,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/', [BlogController::class, 'showLatestPosts'])->name('welcome');
-Route::get('/blogs/{post:slug}', [BlogController::class, 'show'])->name('view');
+Route::get('/{post:slug}', [BlogController::class, 'show'])->name('view');
 
 
 

@@ -20,7 +20,10 @@ class NewsletterSubscriptionResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-envelope';
     protected static ?string $navigationGroup = 'Feedback';
-
+    public static function getNavigationBadge(): ?string
+    {
+        return static :: getModel()::where('Status', '=', 0)->exists() ? 'New' : '';
+    }
 
     public static function form(Form $form): Form
     {
@@ -29,8 +32,13 @@ class NewsletterSubscriptionResource extends Resource
                 Forms\Components\TextInput::make('email')
                     ->email()
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->disabled(),
+
+                    Forms\Components\Toggle::make('Status')
+                    ->required(),
             ]);
+
     }
 
     public static function table(Table $table): Table
@@ -39,7 +47,9 @@ class NewsletterSubscriptionResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
-
+                    Tables\Columns\IconColumn::make('Status')
+                    ->boolean()
+                    ->label('Contacted'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -49,7 +59,8 @@ class NewsletterSubscriptionResource extends Resource
                 //
             ])
             ->actions([
-                //
+
+                Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

@@ -21,6 +21,10 @@ class ContactResource extends Resource
 
     protected static ?string $navigationGroup = 'Feedback';
 
+    public static function getNavigationBadge(): ?string
+    {
+        return static :: getModel()::where('Status', '=', 0)->exists() ? 'New' : '';
+    }
     public static function form(Form $form): Form
     {
         return $form
@@ -35,7 +39,7 @@ class ContactResource extends Resource
                 Forms\Components\Textarea::make('message')
                 ->disabled()
                     ->columnSpanFull(),
-                Forms\Components\Toggle::make('Contacted')
+                Forms\Components\Toggle::make('status')
                     ->required(),
             ]);
     }
@@ -49,8 +53,9 @@ class ContactResource extends Resource
                     ->disableClick(),
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
-                Tables\Columns\IconColumn::make('status')
-                    ->boolean(),
+                    Tables\Columns\IconColumn::make('status')
+                    ->boolean()
+                    ->label('Contacted'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable(),
